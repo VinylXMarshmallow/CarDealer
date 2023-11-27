@@ -1,0 +1,50 @@
+<!-- cars/templates/cars/car_list.html -->
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car Dealer</title>
+   
+    <link rel="stylesheet" type="text/css" href="{% static '/css/styles.css' %}">
+ 
+</head>
+<body>
+
+<header>
+    <h1>Nic Niewarte</h1>
+    <div class="top-bar">
+        
+        <div class="search-bar">
+            <form action="/search/" method="GET">
+                <input type="text" name="q" placeholder="Wyszukaj...">
+                <button type="button">Szukaj</button>
+            </form>
+        </div>
+
+</header>
+
+<div class="container">
+    <h2>Lista Gruzów</h2>
+    <ul>
+        {% for car in cars %}
+            <li>{{ car.year }} {{ car.make }} {{ car.model }} - ${{ car.price }}</li>
+        {% endfor %}
+    </ul>
+    
+</div>
+<div class="car_articles"> div
+    
+    {% for article in articles %}
+        <h2>{{ article.title }}</h2>
+        <p>{{ article.content }}</p>
+        <img src="/media/{{ article.imgThumb }}" alt="{{ article.title }}" title="{{ article.title }}">
+    {% endfor %}
+
+</div>
+
+<footer>
+    &copy; 2023 Car Dealer
+</footer>
+
+</body>
+</html>
